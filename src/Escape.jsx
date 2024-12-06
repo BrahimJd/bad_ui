@@ -3,7 +3,7 @@ import React, { useState, useCallback } from "react";
 import "./styles/MousePointer.css";
 import RealPointer from "./RealPointer";
 
-const NUM_POINTERS = 4000;
+const NUM_POINTERS = 2000; // Reduced from 4000 for better performance
 
 const Escape = () => {
   const [pointers] = useState(Array(NUM_POINTERS).fill(0));
@@ -39,13 +39,13 @@ const Escape = () => {
           style={{
             left: `${Math.random() * 90}%`,
             top: `${Math.random() * 90}%`,
-            animationDelay: `${Math.random() * -4}s`,
-            "--rand-x1": `${Math.random() * 200 - 100}px`,
-            "--rand-y1": `${Math.random() * 200 - 100}px`,
-            "--rand-x2": `${Math.random() * 200 - 100}px`,
-            "--rand-y2": `${Math.random() * 200 - 100}px`,
-            "--rand-x3": `${Math.random() * 200 - 100}px`,
-            "--rand-y3": `${Math.random() * 200 - 100}px`,
+            animationDelay: `${Math.random() * -8}s`, // Increased from -4s
+            "--rand-x1": `${Math.random() * 300 - 150}px`, // Increased range
+            "--rand-y1": `${Math.random() * 300 - 150}px`,
+            "--rand-x2": `${Math.random() * 300 - 150}px`,
+            "--rand-y2": `${Math.random() * 300 - 150}px`,
+            "--rand-x3": `${Math.random() * 300 - 150}px`,
+            "--rand-y3": `${Math.random() * 300 - 150}px`,
           }}
         >
           <div className="pointer-icon">

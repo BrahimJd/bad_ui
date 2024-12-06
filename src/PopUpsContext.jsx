@@ -7,6 +7,8 @@ export const PopUpProvider = ({ children }) => {
   const [popups, setPopups] = useState([]);
 
   const triggerPopup = (type) => {
+    if (popups.length >= 6) return; // Don't add if at limit
+
     const newPopup = {
       id: Date.now(),
       position: {
@@ -14,6 +16,12 @@ export const PopUpProvider = ({ children }) => {
         y: Math.random() * 70,
       },
       type,
+      title: `${type} Popup`,
+      message: `This is a ${type} popup message.`,
+      button: "Close",
+      icon: "🔔",
+      isRedirect: Math.random() > 0.5,
+      url: type === "facebook" ? "https://facebook.com" : null,
     };
     setPopups((prev) => [...prev, newPopup]);
   };

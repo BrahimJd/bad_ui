@@ -1,4 +1,3 @@
-/* styles/PopUps.css */
 .popup-container {
   position: fixed;
   top: 0;
@@ -6,196 +5,46 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 1000;
+  z-index: 99999;
 }
 
 .popup {
-  position: absolute;
-  width: 300px;
+  position: fixed;
+  width: 320px;
   background: white;
+  border: 2px solid #333;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   padding: 16px;
-  pointer-events: all;
-  animation: slideIn 0.3s ease-out;
+  pointer-events: auto;
+  z-index: 99999;
 }
 
 .popup-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.popup-icon {
-  font-size: 24px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
 }
 
 .close-button {
-  margin-left: auto;
-  background: none;
+  background: #ff4444;
+  color: white;
   border: none;
-  font-size: 24px;
+  border-radius: 4px;
+  padding: 5px 10px;
   cursor: pointer;
-  padding: 0 4px;
 }
 
 .action-button {
   width: 100%;
-  padding: 8px;
-  margin-top: 12px;
+  background: #4caf50;
+  color: white;
   border: none;
+  padding: 10px;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
-}
-
-/* Site-specific styles */
-.facebook {
-  border-top: 4px solid #1877f2;
-}
-
-.facebook .action-button {
-  background: #1877f2;
-  color: white;
-}
-
-.google {
-  border-top: 4px solid #db4437;
-}
-
-.google .action-button {
-  background: #db4437;
-  color: white;
-}
-
-.windows {
-  border-top: 4px solid #00a4ef;
-}
-
-.windows .action-button {
-  background: #00a4ef;
-  color: white;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Add to PopUps.css */
-.redirect {
-  border: 2px solid #ff4444;
-  animation: pulse 2s infinite;
-}
-
-.overlay {
-  border: 1px solid #cccccc;
-  opacity: 0.95;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 68, 68, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 68, 68, 0);
-  }
-}
-
-.warning .popup-icon {
-  color: #ff4444;
-}
-
-.update .popup-icon {
-  color: #2196f3;
-}
-/* Add to PopUps.css */
-.popup {
-  animation: shake 0.5s infinite, flash 0.3s infinite, slideIn 0.3s ease-out;
-}
-
-.popup-header h3 {
-  animation: glitch 0.3s infinite;
-  color: red;
-  text-shadow: 2px 2px #000;
-}
-
-.close-button {
-  animation: moveRandom 0.8s infinite;
-}
-
-.action-button {
-  animation: pulse 1s infinite;
-}
-
-@keyframes shake {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-5px, 5px);
-  }
-  50% {
-    transform: translate(5px, -5px);
-  }
-  75% {
-    transform: translate(-5px, -5px);
-  }
-}
-
-@keyframes moveRandom {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(10px, -5px);
-  }
-  50% {
-    transform: translate(-5px, 10px);
-  }
-  75% {
-    transform: translate(5px, 5px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes glitch {
-  0% {
-    transform: skew(0deg);
-  }
-  20% {
-    transform: skew(-10deg);
-  }
-  40% {
-    transform: skew(10deg);
-  }
-  60% {
-    transform: skew(-5deg);
-  }
-  80% {
-    transform: skew(5deg);
-  }
-}
-
-@keyframes flash {
-  0%,
-  100% {
-    background: rgba(255, 255, 255, 0.95);
-  }
-  50% {
-    background: rgba(255, 0, 0, 0.95);
-  }
+  margin-top: 10px;
 }

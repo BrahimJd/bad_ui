@@ -1,8 +1,6 @@
-/* LoadingPage.css */
 .loading-container {
   width: 100vw;
   height: 100vh;
-  background: #000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,10 +15,19 @@
 }
 
 .circle-loader {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: conic-gradient(white 0deg, transparent 0deg);
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  background: transparent;
+  border: 5px solid white;
+}
+
+.circle-loader.pacman {
+  border: none;
+  background: yellow;
+  animation: eat 0.5s linear infinite;
 }
 
 .progress-bar {
@@ -29,6 +36,7 @@
   background: #333;
   border-radius: 10px;
   overflow: hidden;
+  border: 2px solid #444;
 }
 
 .progress-fill {
@@ -41,8 +49,14 @@
   color: #fff;
   font-size: 32px;
   font-weight: bold;
+  text-shadow: 2px 2px #000;
+  transition: color 0.3s ease;
 }
-/* Add to LoadingPage.css */
+
+.percentage-text.reversing {
+  animation: spin 1s infinite;
+}
+
 .confirm-overlay {
   position: fixed;
   top: 0;
@@ -53,33 +67,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .confirm-box {
   background: #111;
   padding: 30px;
-  border: 2px solid white;
+  border: 2px solid #fff;
   text-align: center;
-}
-
-.glitch-text {
-  color: white;
-  animation: glitch 0.3s infinite;
+  min-width: 300px;
+  transform: none !important;
 }
 
 .button-chaos {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   margin: 20px 0;
 }
 
 .move-random {
-  padding: 10px 20px;
-  background: white;
+  padding: 12px 20px;
+  background: #fff;
   border: none;
-  animation: moveRandom 0.8s infinite;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  transform: none !important;
+  animation: none !important;
 }
+
+.move-random:hover {
+  background: #ff4444;
+  color: #fff;
+}
+
 .mock-message-overlay {
   position: fixed;
   top: 0;
@@ -91,13 +113,15 @@
   justify-content: center;
   align-items: center;
   animation: flash 0.5s infinite;
+  z-index: 1001;
 }
 
 .mock-message-box {
   background: #111;
   padding: 30px;
-  border: 2px solid red;
+  border: 2px solid #ff4444;
   text-align: center;
+  min-width: 300px;
 }
 
 @keyframes flash {
@@ -107,5 +131,32 @@
   }
   50% {
     background: rgba(255, 0, 0, 0.6);
+  }
+}
+
+@keyframes eat {
+  0% {
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      yellow 0.1deg 359.9deg,
+      transparent 360deg
+    );
+  }
+  50% {
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg 45deg,
+      yellow 45.1deg 314.9deg,
+      transparent 315deg
+    );
+  }
+  100% {
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      yellow 0.1deg 359.9deg,
+      transparent 360deg
+    );
   }
 }

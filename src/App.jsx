@@ -1,23 +1,20 @@
 // App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PopUpProvider } from "./PopUpsContext";
-import PopUps from "./PopUps";
 import PopUpTrigger from "./PopUpTrigger";
 import Escape from "./Escape";
 import LoadingPage from "./Loading Page";
+import HomePage from "./boba/HomePage";
 
 const App = () => {
   return (
     <PopUpProvider>
       <Router>
         <div>
-          {/* PopUps will show across all routes */}
-          <PopUps />
-          <PopUpTrigger autoStart={true} interval={2000} />
-
           <Routes>
-            <Route path="/" element={<Escape />} />
-            <Route path="/loading" element={<LoadingPage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/logout" element={<Escape />} />
+            <Route path="*" element={<LoadingPage />} />
           </Routes>
         </div>
       </Router>

@@ -1,25 +1,34 @@
-// PopUpTrigger.jsx
-import React, { useEffect } from "react";
-import { usePopUps } from "./PopUpsContext";
-
-const PopUpTrigger = ({ autoStart = true, interval = 3000 }) => {
-  const { triggerPopup } = usePopUps();
+// PopUpTrigger.jsx - Update timing
+const PopUpTrigger = () => {
+  const { triggerPopup, popups } = usePopUps();
+  const location = useLocation();
 
   useEffect(() => {
-    if (autoStart) {
-      const types = ["facebook", "google", "windows"];
-      const timer = setInterval(() => {
+    if (location.pathname !== "/home") return;
+
+    const initialDelay = setTimeout(() => {
+      if (popups.length < 6) {
+        const types = ["facebook", "google", "windows"];
         const randomType = types[Math.floor(Math.random() * types.length)];
         triggerPopup(randomType);
-      }, interval);
+      }
+    }, 10000);
 
-      return () => clearInterval(timer);
-    }
-  }, [autoStart, interval]);
+    const interval = setInterval(() => {
+      if (popups.length < 6) {
+        const types = ["facebook", "google", "windows"];
+        const randomType = types[Math.floor(Math.random() * types.length)];
+        triggerPopup(randomType);
+      }
+    }, Math.random() * 15000 + 15000);
 
-  const handleManualTrigger = (type) => {
-    triggerPopup(type);
-  };
+    return () => {
+      clearTimeout(initialDelay);
+      clearInterval(interval);
+    };
+  }, [location.pathname, popups.length, triggerPopup]);
+
+  return null;
 };
 
 export default PopUpTrigger;
