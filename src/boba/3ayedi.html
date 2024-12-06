@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Worst Website Ever</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="outer-wrapper">
+    <div class="header">
+      <h1 class="blinking-text">🤮  ✨ Welcome to Torture! ✨  🤢</h1>
+    </div>
+    <marquee behavior="alternate" scrollamount="30" class="marquee">CLICK ANYTHING IF YOU DARE!</marquee>
+    
+    <div class="content">
+      <p class="random-text">
+        This website is an endless loop of misery. Enjoy navigating through random links that don't work!
+      </p>
+      <a href="javascript:void(0);" class="fake-link">Click me for a surprise!</a>
+      <img src="ff.jpg" class="jj">
+      <div class="button-grid">
+        <button onclick="alert('Wrong button!')">Do Not Click</button>
+        <button onclick="alert('Try again!')">Nope</button>
+        <button onclick="alert('Still wrong!')">Guess Again</button>
+        <button onclick="alert('Nothing happens.')">Haha!</button>
+      </div>
+      <img class="random-image" id="randomImage" src="https://www.shutterstock.com/shutterstock/photos/43642528/display_1500/stock-photo-young-man-swimming-in-oceans-water-43642528.jpg" alt="Confusion">
+    </div>
+
+    
+  </div>
+
+  <script>
+    // Scroll disables when hovering over certain areas
+    document.querySelector('.random-text').addEventListener('mouseover', () => {
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.body.style.overflow = 'auto', 2000);
+    });
+  </script>
+</body>
+</html>
