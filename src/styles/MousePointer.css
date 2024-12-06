@@ -1,0 +1,71 @@
+/* MousePointer.css */
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  background: #111;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* In MousePointer.css, add/modify: */
+.exit-button {
+  position: absolute;
+  padding: 10px 20px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease; /* Add smooth transition */
+}
+
+.pointer {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  animation: float 4s infinite ease-in-out;
+  will-change: transform;
+}
+
+.pointer-icon {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(
+      calc(var(--rand-x1, 100px)),
+      calc(var(--rand-y1, 100px))
+    );
+  }
+  50% {
+    transform: translate(
+      calc(var(--rand-x2, -100px)),
+      calc(var(--rand-y2, -100px))
+    );
+  }
+  75% {
+    transform: translate(
+      calc(var(--rand-x3, -50px)),
+      calc(var(--rand-y3, 50px))
+    );
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.real-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}

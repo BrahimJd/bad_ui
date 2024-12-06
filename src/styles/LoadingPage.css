@@ -1,0 +1,111 @@
+/* LoadingPage.css */
+.loading-container {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-wrapper {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.circle-loader {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: conic-gradient(white 0deg, transparent 0deg);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #fff;
+  transition: width 0.4s ease-out;
+}
+
+.percentage-text {
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+}
+/* Add to LoadingPage.css */
+.confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-box {
+  background: #111;
+  padding: 30px;
+  border: 2px solid white;
+  text-align: center;
+}
+
+.glitch-text {
+  color: white;
+  animation: glitch 0.3s infinite;
+}
+
+.button-chaos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.move-random {
+  padding: 10px 20px;
+  background: white;
+  border: none;
+  animation: moveRandom 0.8s infinite;
+}
+.mock-message-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: flash 0.5s infinite;
+}
+
+.mock-message-box {
+  background: #111;
+  padding: 30px;
+  border: 2px solid red;
+  text-align: center;
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    background: rgba(255, 0, 0, 0.3);
+  }
+  50% {
+    background: rgba(255, 0, 0, 0.6);
+  }
+}
